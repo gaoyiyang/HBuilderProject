@@ -1,0 +1,305 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+
+			function newWin() {
+				mui.openWindow({
+					url: 'pullrefresh_main.html',
+					styles: {
+						top: '500px'
+					}
+				});
+			}
+
+			function event1() {
+				var cboxs = document.getElementsByName("cbox");
+				var btnText = document.getElementById("btnText");
+				var str = '';
+				for(i in cboxs) {
+					if(cboxs[i].checked) {
+						str += cboxs[i].value + " ";
+					}
+				}
+				btnText.innerHTML = str + "被选中";
+			}
+		</script>
+		<div class="mui-content">
+		<!--
+        	作者：370625414@qq.com
+        	时间：2018-04-13
+        	描述：图片轮播
+       -->
+		<div id="slider" class="mui-slider">
+			<div class="mui-slider-group mui-slider-loop">
+				<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#">
+						<img src="http://placehold.it/400x300">
+					</a>
+				</div>
+				<!-- 第一张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="http://placehold.it/400x300">
+					</a>
+				</div>
+				<!-- 第二张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="http://placehold.it/400x300">
+					</a>
+				</div>
+				<!-- 第三张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="http://placehold.it/400x300">
+					</a>
+				</div>
+				<!-- 第四张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="http://placehold.it/400x300">
+					</a>
+				</div>
+				<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#">
+						<img src="http://placehold.it/400x300">
+					</a>
+				</div>
+			</div>
+			<div class="mui-slider-indicator">
+				<div class="mui-indicator mui-active"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+			</div>
+		</div>
+
+		<!--
+          	作者：370625414@qq.com
+          	时间：2018-04-13
+          	描述：轮播组件
+          -->
+		<div class="mui-slider">
+			<div class="mui-slider-group">
+				<!--第一个内容区容器-->
+				<div class="mui-slider-item">
+					<!-- 具体内容 -->
+					进度条-无限循环
+					<div class="mui-progressbar mui-progressbar-infinite" style="height: 25px;">
+						<span></span>
+					</div>
+				</div>
+				<!--第二个内容区-->
+				<div class="mui-slider-item">
+					<!-- 具体内容 -->
+					进度条-有准确值
+					<div class="mui-progressbar" style="height: 25px;">
+						<span></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--<a href="javascript:void(0)" onclick="newWin()">pullrefresh_main.html</a>-->
+		<hr />
+		<!--
+        	作者：370625414@qq.com
+        	时间：2018-04-13
+        	描述：复选框
+        -->
+		复选框:
+		<div class="mui-input-row mui-checkbox ">
+			<label>A</label>
+			<input name="cbox" value="A" type="checkbox" checked>
+		</div>
+		复选框居左:
+		<div class="mui-input-row mui-checkbox mui-left">
+			<label>B</label>
+			<input name="cbox" value="B" type="checkbox" checked>
+		</div>
+		复选框禁用选项:
+		<div class="mui-input-row mui-checkbox mui-disabled">
+			<label>C</label>
+			<input name="cbox" value="C" type="checkbox" disabled="disabled">
+		</div>
+		按钮mbu:<br />
+		<button type="button" class="mui-btn mui-btn-blue mui-btn-outlined" onclick="event1()">确认</button><br />
+		<span id="btnText"></span>
+		<hr />
+		<h2>单选框mra:</h2>
+		普通单选框:
+		<div class="mui-input-row mui-radio ">
+		    <label>Radio</label>
+		    <input name="radio" type="radio" checked>
+		</div>
+		单选框-左:
+		<div class="mui-input-row mui-radio mui-left">
+		    <label>Radio</label>
+		    <input name="radio" type="radio" checked>
+		</div>
+		禁用单选框:
+		<div class="mui-input-row mui-radio mui-left mui-disabled">
+		    <label>Radio</label>
+		    <input name="radio" type="radio" disabled="disabled">
+		</div>
+		默认选中指定项:
+		<ul class="mui-table-view mui-table-view-radio">
+		    <li class="mui-table-view-cell">
+		        <a class="mui-navigate-right">Item 1</a>
+		    </li>
+		    <li class="mui-table-view-cell mui-selected">
+		        <a class="mui-navigate-right">Item 2</a>
+		    </li>
+		    <li class="mui-table-view-cell">
+		        <a class="mui-navigate-right">Item 3</a>
+		    </li>
+		</ul>
+		<hr />
+		<h2>弹出菜单mpo:</h2>
+		<style type="text/css">
+		#popover{
+			height: 100px;
+			width:200px;
+		}
+		</style>
+		<div id="popover" class="mui-popover">
+			<div class="mui-scroll-wrapper">
+			    <div class="mui-scroll">
+				    <ul class="mui-table-view">
+				    	<li class="mui-table-view-cell"><a href="javascript:void(0)">Item1</a></li>
+				    	<li class="mui-table-view-cell"><a href="javascript:void(0)">Item2</a></li>
+				    	<li class="mui-table-view-cell"><a href="javascript:void(0)">Item3</a></li>
+				    	<li class="mui-table-view-cell"><a href="javascript:void(0)">Item4</a></li>
+				    	<li class="mui-table-view-cell"><a href="javascript:void(0)">Item5</a></li>
+				    </ul>
+				</div>
+			</div>
+		</div>
+		<a href="#popover" id="openPopover" class="mui-btn mui-btn-primary mui-btn-block">打开弹出菜单</a>
+		<script>
+		//开启滚动
+		mui('.mui-scroll-wrapper').scroll();
+		</script>
+		<hr />
+		<!--<h3>ajax获取服务器数据</h3>
+		<div class="mui-input-row">
+		    <input type="text" placeholder="发送数据" id="testText">
+		</div>
+		<button type="button" class="mui-btn mui-btn-blue" onclick="getText()">发送数据</button><br />
+		<label>返回数据:</label>
+		<p id="msg"></p>
+		<script>
+		function getText(){
+			var str = document.getElementById("testText").value;
+			mui.ajax('http://192.168.3.115:80/cqu/sh.mui.returnTestJson.sh',{
+				data:{
+					"requestMsg":str,
+					"userName":"HBuilder"
+				},
+				headers:{'Content-Type':'application/json'},
+				crossDomain:true,
+				type:"post",
+				dataType:"json",
+				timeout:10000,
+				success:function(resultJson){
+					document.getElementById("msg").innerHTML = resultJson.msg;
+				}
+			});
+		}
+		</script>
+		<hr />-->
+		<h2>输入min</h2>
+		<div class="mui-input-row">
+		    <label>普通输入</label>
+		    <input type="text" placeholder="普通输入框">
+		</div>
+		
+		<div class="mui-input-row">
+		    <label>语音输入</label>
+		    <input type="text" class="mui-input-speech mui-input-clear" id="yy" placeholder="语音输入">
+		</div>
+			<div class="mui-input-row mui-search">
+			    <input type="search" class="mui-input-clear" placeholder="搜索框" oninput="document.getElementById('yy').value=this.value">
+			</div>
+		<hr />
+		
+		<h3>H5模式弹出菜单mac</h3>
+		<div id="sheet" class="mui-popover mui-popover-bottom mui-popover-action ">
+		    <!-- 可选择菜单 -->
+		    <ul class="mui-table-view">
+		      <li class="mui-table-view-cell">
+		        <a href="http://dev.dcloud.net.cn/mui/snippet/">MUI API</a>
+		      </li>
+		      <li class="mui-table-view-cell">
+		        <a href="#">菜单2</a>
+		      </li>
+		    </ul>
+		    <!-- 取消菜单 -->
+		    <ul class="mui-table-view">
+		      <li class="mui-table-view-cell">
+		        <a href="#sheet1"><b>取消</b></a>
+		      </li>
+		    </ul>
+		</div>
+		<a href="#sheet" id="openSheet" class="mui-btn mui-btn-primary mui-btn-block">打开操作表</a>
+		<hr />
+		
+		<h3>mRange(Label+滑块):mra</h3>
+		<div class="mui-input-row mui-input-range">
+		    <label>Range</label>
+		    <input type="range" min="0" max="100" value="50">
+		</div>
+		<hr />
+		<hr />
+		<h3>开关msw</h3>
+		
+		<div class="mui-input-row">
+		    <label>普通</label>
+		    <div class="mui-switch mui-active">
+		        <div class="mui-switch-handle"></div>
+		    </div>
+		</div>
+		<div class="mui-input-row">
+		    <label>蓝色</label>
+		    <div class="mui-switch mui-active mui-switch-blue">
+		        <div class="mui-switch-handle"></div>
+		    </div>
+		</div>
+		迷你:
+		<div class="mui-switch mui-switch-mini mui-active">
+		  <div class="mui-switch-handle"></div>
+		</div>
+		<div class="mui-switch mui-switch-mini mui-active mui-switch-blue">
+		  <div class="mui-switch-handle"></div>
+		</div>
+		<hr />
+		
+		<h3>数字角标mba</h3>
+		<span class="mui-badge mui-btn-blue">1</span>
+		<span class="mui-badge mui-badge-inverted mui-btn-blue">2</span>
+		<hr />
+		
+		<h3>div选项卡mta:</h3>
+		<div class="mui-segmented-control">
+		    <a class="mui-control-item mui-active" href="http://ww">选项卡1</a>
+		    <a class="mui-control-item" href="#item2">选项卡1</a>
+		</div>
+		<hr />
+
+		</div>
+		
+	</body>
+
+</html>
