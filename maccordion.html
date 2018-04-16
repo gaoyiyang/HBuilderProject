@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			//提交表单内容
+			function mySubmit() {
+				var username = mui("[name='username']")[0];
+				var psw = mui("[name='password']")[0];
+				mui("#username")[0].innerHTML = username.value;
+				mui("#password")[0].innerHTML = psw.value;
+				username.value = "";
+				psw.value = "";
+				//自动消失提示框
+				mui.toast('提交成功!');
+			}
+			//清空表单内容
+			function myCancel() {
+				mui("[name='username']")[0].value = "";
+				mui("[name='password']")[0].value = "";
+			}
+		</script>
+
+		<!--
+        	作者：370625414@qq.com
+        	时间：2018-04-16
+        	描述：MUI折叠面板
+        -->
+		<ul class="mui-table-view">
+			<li class="mui-table-view-cell mui-collapse">
+				<a class="mui-navigate-right" href="#">表单</a>
+				<div class="mui-collapse-content">
+					<p>
+						<form class="mui-input-group">
+							<div class="mui-input-row">
+								<label>用户名</label>
+								<input type="text" name="username" class="mui-input-clear" placeholder="请输入用户名">
+							</div>
+							<div class="mui-input-row">
+								<label>密码</label>
+								<input type="password" name="password" class="mui-input-password" placeholder="请输入密码">
+							</div>
+							<div class="mui-button-row">
+								<button type="button" class="mui-btn mui-btn-primary" onclick="mySubmit()">确认</button>
+								<button type="button" class="mui-btn mui-btn-danger" onclick="myCancel()">取消</button>
+							</div>
+						</form>
+					</p>
+				</div>
+			</li>
+			<li class="mui-table-view-cell mui-collapse">
+				<a class="mui-navigate-right" href="#">信息</a>
+				<div class="mui-collapse-content">
+					<small style="color: gray;font-size: 13px;">用户名:</small><label id="username"></label>
+					<hr />
+					<small style="color: gray;font-size: 13px;">密码:</small><label id="password"></label>
+
+				</div>
+			</li>
+		</ul>
+	</body>
+
+</html>
