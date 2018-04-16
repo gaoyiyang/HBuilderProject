@@ -8,9 +8,11 @@
 		<script src="js/mui.min.js"></script>
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<script type="text/javascript" charset="utf-8">
-			function mui_table_view() {
+			function mui_table_view(viewName) {
 				var ifr = mui("#main iframe")[0];
-				ifr.src = "maccordion.html";
+				ifr.src = "demoView/" + viewName + ".html";
+				//关闭侧滑菜单
+				mui('.mui-off-canvas-wrap').offCanvas().close();
 			}
 		</script>
 	</head>
@@ -26,13 +28,19 @@
 					<div class="mui-scroll-wrapper">
 						<div class="mui-scroll">
 							<!-- 菜单具体展示内容 -->
+							<ul class="mui-table-view">
+								<li class="mui-table-view-cell" onclick="mui_table_view('maccordion')">折叠面板</li>
+								<li class="mui-table-view-cell"  onclick="mui_table_view('mactionsheet')">操作表</li>
+								<li class="mui-table-view-cell" onclick="mui_table_view('mbadge')">角标</li>
+								<li class="mui-table-view-cell" onclick="mui_table_view('mbutton')">按钮</li>
+							</ul>
 						</div>
 					</div>
 				</aside>
 				<!-- 主页面标题 -->
 				<header class="mui-bar mui-bar-nav">
 					<a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left" href="#offCanvasSide"></a>
-					<h1 class="mui-title">标题</h1>
+					<h1 class="mui-title">MUI演示</h1>
 				</header>
 				<!--<nav class="mui-bar mui-bar-tab">
 					<a class="mui-tab-item mui-active">
@@ -56,12 +64,7 @@
 				<div class="mui-content mui-scroll-wrapper">
 					<div class="mui-scroll">
 						<!-- 主界面具体展示内容 -->
-						<div style="margin: 5px 5px;">
-							<button type="button" class="mui-btn mui-btn-primary" onclick="mui_table_view()">折叠面板</button>
-							<button type="button" class="mui-btn mui-btn-primary" onclick="mui_table_view()">折叠面板</button>
-						</div>
-						<hr />
-						<div id="main" style="width: 100%;padding: 0px;">
+						<div id="main" style="width: 100%;padding: 0px;margin-top: 20px;">
 							<iframe style="border: none;width: 99%;height: 500px;"></iframe>
 						</div>
 					</div>
