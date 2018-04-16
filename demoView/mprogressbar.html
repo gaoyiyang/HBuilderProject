@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+
+			function changePro() {
+				var range = mui("input")[0];
+				mui("#demo1").progressbar().setProgress(range.value);
+			}
+			
+			function changePro2(btn){
+				if(btn.innerHTML == "关闭"){
+					mui("#demo2").progressbar().hide();
+					btn.innerHTML = "开启";
+				}else{
+					mui("#demo2").progressbar().show();
+					btn.innerHTML = "关闭";
+				}
+			}
+		</script>
+		<!--
+        	作者：370625414@qq.com
+        	时间：2018-04-16
+        	描述：进度条mprogressbar
+        -->
+		<p>带准确值进度条</p>
+		<div class="mui-progressbar" id="demo1" style="height: 10px;">
+			<span></span>
+		</div><br />
+		<div class="mui-input-row mui-input-range">
+			<label style="font-size: 12px;">修改进度条的值</label>
+			<input type="range" min="0" max="100" value="0" oninput="changePro()">
+		</div>
+		<div>
+			<p>无限循环进度条</p>
+			<div id="demo2" class="mui-progressbar mui-progressbar-infinite">
+				<span></span>
+			</div>
+			<button type="button" onclick="changePro2(this)" class="mui-btn mui-btn-primary">关闭</button>
+		</div>
+	</body>
+
+</html>
