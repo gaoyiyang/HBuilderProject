@@ -4,15 +4,25 @@
       "js/mui.min.js",
       "fonts/mui.ttf",
       "css/mui.min.css",
-      "img/s©¶j©¶.gif_temp.bmp",
+      "img/s\u0011ýý\u000e\u001fjýý.gif_temp.bmp",
       "img/u\u003d1063782804,2018411309\u0026fm\u003d15\u0026gp\u003d0.jpg",
-      "+mui„html.html",
+      "+muiýhtml.html",
       "img/s\u0011ýý\u000e\u001fjýý.gif_temp.bmp",
       "+muiýhtml.html",
-      "main.html"
+      "main.html",
+      "demoView/mbadge.html",
+      "demoView/mprogressbar.html",
+      "demoView/maccordion.html",
+      "demoView/mbutton.html",
+      "img/logo.jpg",
+      "demoView/mtransparent.html",
+      "demoView/mmask.html",
+      "js/app.js",
+      "login.html",
+      "js/mui.enterfocus.js"
     ],
     "refer": [
-      "+mui„html.html"
+      "+muiýhtml.html"
     ]
   },
   "main.html": {
@@ -35,6 +45,45 @@
   "pullrefresh_sub.html": {
     "resources": [
       "fonts/mui.ttf"
+    ],
+    "refer": []
+  },
+  "login.html": {
+    "resources": [
+      "js/app.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/mui.enterfocus.js",
+      "fonts/mui.ttf"
+    ],
+    "refer": [
+      "main.html",
+      "forget_password.html",
+      "reg.html"
+    ]
+  },
+  "forget_password.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/style.css"
+    ],
+    "refer": []
+  },
+  "reg.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/style.css"
+    ],
+    "refer": [
+      "login.html"
+    ]
+  },
+  "xhr.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css"
     ],
     "refer": []
   }

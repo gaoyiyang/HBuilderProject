@@ -200,7 +200,17 @@
 					"img/平民玩家与土豪玩家.gif_temp.bmp",
 					"img/u\u003d1063782804,2018411309\u0026fm\u003d15\u0026gp\u003d0.jpg",
 					"含mui的html.html",
-					"main.html"
+					"main.html",
+					"demoView/mbadge.html",
+					"demoView/mprogressbar.html",
+					"demoView/maccordion.html",
+					"demoView/mbutton.html",
+					"img/logo.jpg",
+					"demoView/mtransparent.html",
+					"demoView/mmask.html",
+					"js/app.js",
+					"login.html",
+					"js/mui.enterfocus.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -225,6 +235,49 @@
 			"pullrefresh_sub.html": {
 				"resources": [
 					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"login.html": {
+				"resources": [
+					"js/app.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/mui.enterfocus.js",
+					"fonts/mui.ttf"
+				],
+				"refer": [
+					"main.html",
+					"forget_password.html",
+					"reg.html"
+				],
+				"priority": 0
+			},
+			"forget_password.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"reg.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css"
+				],
+				"refer": [
+					"login.html"
+				],
+				"priority": 0
+			},
+			"xhr.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css"
 				],
 				"refer": [],
 				"priority": 0

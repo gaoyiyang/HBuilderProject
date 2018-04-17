@@ -7,14 +7,6 @@
 		<title></title>
 		<script src="js/mui.min.js"></script>
 		<link href="css/mui.min.css" rel="stylesheet" />
-		<script type="text/javascript" charset="utf-8">
-			function openView(viewName) {
-				var ifr = mui("#main iframe")[0];
-				ifr.src = "demoView/" + viewName + ".html";
-				//关闭侧滑菜单
-				mui('.mui-off-canvas-wrap').offCanvas().close();
-			}
-		</script>
 		<style>
 			/*自定义列表点击颜色*/
 			/*点击变蓝色高亮*/
@@ -37,17 +29,17 @@
 					<div class="mui-scroll-wrapper">
 						<div class="mui-scroll">
 							<!-- 菜单具体展示内容 -->
-							<ul class="mui-table-view">
-								<li class="mui-table-view-cell" onclick="openView('maccordion')">折叠面板</li>
-								<li class="mui-table-view-cell" onclick="openView('mactionsheet')">操作表</li>
-								<li class="mui-table-view-cell" onclick="openView('mbadge')">角标</li>
-								<li class="mui-table-view-cell" onclick="openView('mbutton')">按钮</li>
-								<li class="mui-table-view-cell" onclick="openView('cardview')">卡片视图</li>
-								<li class="mui-table-view-cell" onclick="openView('mcheckbox')">单选框</li>
-								<li class="mui-table-view-cell" onclick="openView('mmask')">遮罩蒙版</li>
-								<li class="mui-table-view-cell" onclick="openView('mprogressbar')">进度条</li>
-								<li class="mui-table-view-cell" onclick="openView('mtransparent')">透明状态栏</li>
-							</ul>
+							<ul class="mui-table-view" id="demoView">
+								<li class="mui-table-view-cell" id="demoView\maccordion.html">折叠面板</li>
+								<li class="mui-table-view-cell" id="demoView\mactionsheet.html">操作表</li>
+								<li class="mui-table-view-cell" id="demoView\mbadge.html">角标</li>
+								<li class="mui-table-view-cell" id="demoView\mbutton.html">按钮</li>
+								<li class="mui-table-view-cell" id="demoView\cardview.html">卡片视图</li>
+								<li class="mui-table-view-cell" id="demoView\mcheckbox.html">单选框</li>
+								<li class="mui-table-view-cell" id="demoView\mmask.html">遮罩蒙版</li>
+								<li class="mui-table-view-cell" id="demoView\mprogressbar.html">进度条</li>
+								<li class="mui-table-view-cell" id="demoView\mtransparent.html">透明状态栏</li>
+								<li class="mui-table-view-cell" id="login">登录模块</li>
 						</div>
 					</div>
 				</aside>
@@ -78,14 +70,29 @@
 				<div class="mui-content mui-scroll-wrapper">
 					<div class="mui-scroll">
 						<!-- 主界面具体展示内容 -->
-						<div id="main" style="width: 100%;padding: 0px;margin-top: 20px;">
-							<iframe style="border: none;width: 99%;height: 500px;"></iframe>
+						<div id="main" style="width: 100%;padding: 0px;">
+							<iframe style="border: none;width: 99%;height: 1000px;"></iframe>
 						</div>
 					</div>
 				</div>
 				<div class="mui-off-canvas-backdrop"></div>
 			</div>
 		</div>
+		<script>
+			//初始化滑动区域
+			mui('.mui-scroll-wrapper').scroll({
+				deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+			});
+			mui('.mui-table-view').on('tap', '.mui-table-view-cell', function() {
+				if(this.id != 'login') {
+					mui("#main iframe")[0].src = this.id;
+					mui('.mui-off-canvas-wrap').offCanvas().close();
+				}
+			})
+			mui('.mui-table-view').on('tap', '#login', function(){
+				mui.openWindow('loginTemplate/login.html');
+			});
+		</script>
 	</body>
 
 </html>
