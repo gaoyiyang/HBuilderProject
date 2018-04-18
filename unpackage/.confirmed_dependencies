@@ -22,7 +22,9 @@
       "js/mui.enterfocus.js"
     ],
     "refer": [
-      "+muiýhtml.html"
+      "+muiýhtml.html",
+      "loginTemplate/login.html",
+      "m-box/main.html"
     ]
   },
   "main.html": {
@@ -86,5 +88,20 @@
       "css/mui.min.css"
     ],
     "refer": []
+  },
+  "m-box/main.html": {
+    "resources": [
+      "m-box/home.html"
+    ],
+    "refer": [
+      "m-box/home.html",
+      "m-box/setting.html",
+      "m-box/message.html"
+    ]
+  },
+  "loginTemplate/login.html": {
+    "refer": [
+      "loginTemplate/main.html"
+    ]
   }
 }

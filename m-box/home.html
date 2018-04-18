@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,uhttp://127.0.0.1:8020/Mui/m-box/home.html#ser-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+		#slider img{
+			border:1px solid black;
+			height: 200px;
+		}
+		</style>
+	</head>
+
+	<body>
+		<div id="slider" class="mui-slider" >
+		  <div class="mui-slider-group mui-slider-loop">
+		    <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+		    <div class="mui-slider-item mui-slider-item-duplicate">
+		      <a href="#">
+		        <img src="../images/qq.png"/>
+		      </a>
+		    </div>
+		    <!-- 第一张 -->
+		    <div class="mui-slider-item">
+		      <a href="#">
+		        <img src="../images/user-photo.png">
+		      </a>
+		    </div>
+		    <!-- 第二张 -->
+		    <div class="mui-slider-item">
+		      <a href="#">
+		        <img src="../images/iconfont-tianjia.png">
+		      </a>
+		    </div>
+		    <!-- 第三张 -->
+		    <div class="mui-slider-item">
+		      <a href="#">
+		        <img src="../images/qq.png"/>
+		      </a>
+		    </div>
+		    <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+		    <div class="mui-slider-item mui-slider-item-duplicate">
+		      <a href="#">
+		        <img src="../images/user-photo.png">
+		      </a>
+		    </div>
+		  </div>
+		  <div class="mui-slider-indicator">
+		    <div class="mui-indicator mui-active"></div>
+		    <div class="mui-indicator"></div>
+		    <div class="mui-indicator"></div>
+		  </div>
+		</div>
+		
+		<div class="mui-slider">
+		    <div class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+		        <a class="mui-control-item" href="#item1">选项卡1</a>
+		        <a class="mui-control-item" href="#item2">选项卡2</a>
+		    </div>
+		    <div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-6"></div>
+		    <div class="mui-slider-group">
+		        <div id="item1" class="mui-slider-item mui-control-content mui-active">
+		            <ul class="mui-table-view">
+		                <li class="mui-table-view-cell">第1个选项卡子项</li>
+		                <li class="mui-table-view-cell">第1个选项卡子项</li>
+		            </ul>
+		        </div>
+		        <div id="item2" class="mui-slider-item mui-control-content">
+		            <ul class="mui-table-view">
+		                <li class="mui-table-view-cell">第2个选项卡子项</li>
+		                <li class="mui-table-view-cell">第2个选项卡子项</li>
+		            </ul>
+		        </div>
+		    </div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			//图片轮播速度
+			mui("#slider").slider({
+				interval:5000//自动轮播周期，若为0则不自动播放，默认为0；
+			});
+		</script>
+	</body>
+</html>

@@ -212,7 +212,10 @@
 					"login.html",
 					"js/mui.enterfocus.js"
 				],
-				"refer": [],
+				"refer": [
+					"loginTemplate/login.html",
+					"m-box/main.html"
+				],
 				"priority": 0
 			},
 			"main.html": {
@@ -280,6 +283,23 @@
 					"css/mui.min.css"
 				],
 				"refer": [],
+				"priority": 0
+			},
+			"m-box/main.html": {
+				"resources": [
+					"m-box/home.html"
+				],
+				"refer": [
+					"m-box/setting.html",
+					"m-box/message.html"
+				],
+				"priority": 0
+			},
+			"loginTemplate/login.html": {
+				"resources": [],
+				"refer": [
+					"loginTemplate/main.html"
+				],
 				"priority": 0
 			}
 		},

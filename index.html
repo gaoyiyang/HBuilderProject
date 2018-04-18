@@ -40,6 +40,7 @@
 								<li class="mui-table-view-cell" id="demoView\mprogressbar.html">进度条</li>
 								<li class="mui-table-view-cell" id="demoView\mtransparent.html">透明状态栏</li>
 								<li class="mui-table-view-cell" id="login">登录模块</li>
+								<li class="mui-table-view-cell" id="mbox">底部状态栏</li>
 						</div>
 					</div>
 				</aside>
@@ -84,13 +85,16 @@
 				deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
 			});
 			mui('.mui-table-view').on('tap', '.mui-table-view-cell', function() {
-				if(this.id != 'login') {
+				if(this.id != 'login' && this.id != 'mbox') {
 					mui("#main iframe")[0].src = this.id;
 					mui('.mui-off-canvas-wrap').offCanvas().close();
 				}
 			})
 			mui('.mui-table-view').on('tap', '#login', function(){
 				mui.openWindow('loginTemplate/login.html');
+			});
+			mui('.mui-table-view').on('tap', '#mbox', function(){
+				mui.openWindow('m-box/main.html');
 			});
 		</script>
 	</body>
