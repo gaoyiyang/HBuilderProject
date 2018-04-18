@@ -1,18 +1,89 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="../css/mui.min.css" rel="stylesheet" />
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<style type="text/css">
+			.mui-content>.mui-table-view:first-child {
+				margin-top: -1px;
+			}
+		</style>
 	</head>
 
 	<body>
-		Message
-		<script src="../js/mui.min.js"></script>
-		<script type="text/javascript">
-			mui.init()
+		<!--<header class="mui-bar mui-bar-nav mui-bar-transparent" type="transparent" data-top='0' data-offset='150' data-duration='16' data-scrollby=".mui-scroll-wrapper">
+			<h1 class="mui-title">下拉刷新和上来加载 单webview模式</h1>
+		</header>-->
+		<!--下拉刷新容器-->
+		<div id="pullrefresh" class="mui-content">
+			<!--数据列表-->
+			<ul class="mui-table-view mui-table-view-chevron"></ul>
+		</div>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			mui.init();
+			mui.ajax('http://192.168.3.228/pro/maillist', {
+				type: "post",
+				data: {
+					method: "list"
+				},
+				dataType: "json",
+				success: function(data) {
+					var table = document.body.querySelector('.mui-table-view');
+					var cells = document.body.querySelectorAll('.mui-table-view-cell');
+					for(i = 0; i < data.length; i++) {
+						var li = document.createElement('li');
+						li.className = 'mui-table-view-cell';
+						li.innerHTML = '<a class="mui-navigate-right">姓名:' + data[i].mailName + '&nbsp电话' + data[i].mobil + '</a>';
+						table.appendChild(li);
+					}
+				},
+				error: function() {
+					plus.nativeUI.toast("连接失败!");
+				}
+			});
+			//			function pullupRefresh() {
+			//				setTimeout(function() {
+			//					mui('#pullrefresh').pullRefresh().endPullup((++count > 2)); //参数为true代表没有更多数据了。
+			//					var table = document.body.querySelector('.mui-table-view');
+			//					var cells = document.body.querySelectorAll('.mui-table-view-cell');
+			//					var newCount = cells.length > 0 ? 5 : 20; //首次加载20条，满屏
+			//					for(var i = cells.length, len = i + newCount; i < len; i++) {
+			//						var li = document.createElement('li');
+			//						li.className = 'mui-table-view-cell';
+			//						li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
+			//						table.appendChild(li);
+			//					}
+			//				}, 1500);
+			//			}
+			//
+			//			function addData() {
+			//				var table = document.body.querySelector('.mui-table-view');
+			//				var cells = document.body.querySelectorAll('.mui-table-view-cell');
+			//				for(var i = cells.length, len = i + 5; i < len; i++) {
+			//					var li = document.createElement('li');
+			//					li.className = 'mui-table-view-cell';
+			//					li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
+			//					//下拉刷新，新纪录插到最前面；
+			//					table.insertBefore(li, table.firstChild);
+			//				}
+			//			}
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			/*function pulldownRefresh() {
+				setTimeout(function() {
+					addData();
+					mui('#pullrefresh').pullRefresh().endPulldown();
+					plus.nativeUI.toast("为你推荐了5");
+				}, 1500);
+			}*/
 		</script>
 	</body>
 
